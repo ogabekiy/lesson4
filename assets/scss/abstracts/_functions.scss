@@ -1,0 +1,7 @@
+@use 'sass:math';
+@function pxToRem($px){
+  @return $px / 16 * 1rem;
+}
+@function maxNumber($num1, $num2){
+  @return math.min($num1, $num2) * 1px;
+}

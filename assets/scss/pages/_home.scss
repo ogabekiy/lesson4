@@ -1,0 +1,422 @@
+@use "../abstracts/functions";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as m;
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Merriweather", serif;
+}
+.container {
+  padding-right: 170px;
+  padding-left: 170px;
+}
+.header {
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 0;
+    &-close {
+      padding: 7px 20px;
+      border: 1px solid #fff;
+      color: #fff;
+      font-size: 2rem;
+      float: right;
+      border-radius: 5px;
+      background: red;
+      display: none;
+    }
+    &-toggler {
+      padding: 7px 10px;
+      display: none;
+      border: 1px solid;
+      border-radius: 5px;
+      background: transparent;
+    }
+    &-logo {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      color: $text-color;
+      font-weight: 700;
+      font-size: 2rem;
+      text-decoration: none;
+    }
+    &-menu {
+      &_contact {
+        display: flex;
+        gap: 50px;
+        list-style: none;
+        &--item:nth-child(2) {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+        }
+        a {
+          text-decoration: none;
+          color: #000;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          transition: 0.3s;
+          &:hover {
+            color: $text-color;
+          }
+        }
+      }
+      &_pages {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        margin-top: 15px;
+        justify-content: space-between;
+        a {
+          text-decoration: none;
+          color: #000;
+          transition: 0.3s;
+          font-family: sans-serif;
+          text-transform: uppercase;
+          font-weight: 600;
+          &:hover {
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+  &__hero {
+    background: url(../images/bg.png) no-repeat center / cover;
+    height: 500px;
+    padding-left: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 50px;
+    h1 {
+      color: #fff;
+      max-width: 500px;
+    }
+    button {
+      @include m.button;
+    }
+  }
+}
+.show {
+  display: block !important;
+}
+
+// ! main
+.service {
+  padding: 100px 0;
+  background: #ebebeb;
+  &__title {
+    margin-bottom: 50px;
+    h2 {
+      font-size: functions.pxToRem(32);
+    }
+    p {
+      color: #bdbdbd;
+      font-family: sans-serif;
+    }
+  }
+  &__cards {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    &-item {
+      height: 360px;
+      background: #000 url(../images/card-bg.png) no-repeat center / cover;
+      color: #fff;
+      min-width: 100px;
+      display: flex;
+      align-items: end;
+      padding: 50px;
+      font-family: sans-serif;
+      font-size: 20px;
+      position: relative;
+      z-index: 0;
+      transition: 0.3s;
+      &:hover {
+        transform: scale(102%);
+      }
+      &:hover::after {
+        opacity: 0.5;
+      }
+      &::after {
+        transition: 0.5s;
+        position: absolute;
+        z-index: -1;
+        background: $primary-color;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        opacity: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+// .company-info{
+//   h1{
+//     // display: flex;
+//     margin-left: 20px;
+//     color: red;
+//     text-align: center;
+//     padding-top: 200px;
+//   }
+// }
+
+.o_nas{
+  padding-top: 200px;
+  padding-bottom: 200px;
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  padding-left: 400px;
+  padding-right: 300px;
+  .company-info{
+    h1{
+      max-width: 10px;
+      span{
+        color: rgb(57, 57, 160);
+      }
+      font-family: Merriweather;
+      font-size: 48px;
+      line-height: 69.39px;
+      text-decoration-skip-ink: none;
+      text-align: left;
+      text-underline-position: from-font;
+
+    }
+    p{
+      font-family: Lato;
+      font-size: 18px;
+      line-height: 24.84px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      max-width: 35%;
+      font-family: 'Lato' sans-serif;
+    }
+  }
+  .part_90{
+
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    flex-wrap: wrap;
+    .metrics-row{
+      display: flex;
+      gap:20px;
+    }
+
+    .metric-card{
+      width: 255px;
+      height: 255px;
+      background-color: #EBEBEB;
+      padding: 20px;
+      .metric-value{
+        font-size: 36px;
+        width: 75px;
+        height: 54px;
+        // top: 2216px;
+
+        left: 1015px;
+        gap: 0px;
+        opacity: 0px;
+        font-family: Lato;
+        font-size: 55px;
+        line-height: 66px;
+        letter-spacing: 0.1em;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+      }
+      .metric-label{
+        width: 107px;
+        height: 37px;
+        // top: 2300px;
+        left: 1015px;
+        gap: 0px;
+        opacity: 0px;
+        // padding-top: 5px;
+
+      }
+
+      .metric-action{
+        // padding-top: 30px;
+        font-size: 14px;
+        color: #007bff;
+        // padding-top: 50px;
+        // margin-top: 50px;
+        // top: 2384px;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+    
+
+    
+
+  }
+}
+
+
+
+
+@media screen and (max-width: 1220px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .header__nav {
+    justify-content: space-between;
+    padding: 25px 40px;
+    &-toggler,
+    &-close {
+      display: block;
+    }
+  }
+  .header__nav-menu {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: #222;
+    padding: 50px;
+    color: #fff;
+    ul {
+      flex-direction: column;
+      align-items: center;
+      &:nth-child(2) {
+        margin-top: 50px;
+      }
+    }
+    a {
+      color: #fff;
+    }
+  }
+}
+
+
+.rectangle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ebebeb;
+  max-width: 1920px;
+  height: 630px;
+
+  &__content {
+      h4 {
+          opacity: 0.5;
+          font-size: 24px;
+      }
+      h3 {
+          font-size: 48px;
+      }
+      display: flex;
+      flex-direction: column;
+      margin-top: 100px;
+      padding-right: 650px;
+      gap: 40px;
+  }
+
+  &__from {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 80px;
+      gap: 30px;
+      width: 255px;
+      height: 130px;
+  }
+}
+
+
+@media screen and (max-width: 1080px) {
+  .container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .header {
+    &__hero {
+      padding-left: 50px;
+    }
+  }
+  .service {
+    &__cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .service {
+    &__title {
+      h2 {
+        font-size: functions.pxToRem(20);
+      }
+    }
+    &__cards {
+      &-item {
+        font-size: 16px;
+        height: 300px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .header {
+    &__hero {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .service {
+    &__cards {
+      grid-template-columns: repeat(1, 1fr);
+      &-item {
+        justify-content: center;
+        padding: 50px 20px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 425px) {
+  .header {
+    &__hero {
+      padding-left: 20px;
+    }
+    &__nav {
+      &-logo {
+        font-size: functions.pxToRem(20);
+        gap: 10px;
+      }
+    }
+  }
+}
